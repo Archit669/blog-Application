@@ -14,6 +14,18 @@ function Header() {
       slug: "/",
       active: true
     }, 
+    // {
+    //   name: 'Posts',
+    //   slug: "/posts",
+    //   active: true
+    // },
+
+    {
+      name: "All Posts",
+      slug: "/all-posts",
+      active: true,
+    },
+    
     {
       name: "Login",
       slug: "/login",
@@ -24,11 +36,7 @@ function Header() {
       slug: "/signup",
       active: !authStatus,
   },
-  {
-      name: "All Posts",
-      slug: "/all-posts",
-      active: authStatus,
-  },
+  
   {
       name: "Add Post",
       slug: "/add-post",
@@ -38,10 +46,10 @@ function Header() {
 
 
   return (
-    <header className='py-3 shadow bg-gray-500 rounded-t-3xl'>
+    <header className='py-2 px-8 fixed w-full h-[4rem] z-50 text-white bg-[#0000004f] backdrop-blur-md flex items-center'>
       <Container>
-        <nav className='flex'>
-          <div className='mr-4'>
+        <nav className='flex items-center'>
+          <div className='mr-4 text-2xl'>
             <Link to='/'>
               <Logo width='70px'   />
 
@@ -53,7 +61,7 @@ function Header() {
               <li key={item.name}>
                 <button
                 onClick={() => navigate(item.slug)}
-                className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 hover:text-black rounded-full'
                 >{item.name}</button>
               </li>
             ) : null

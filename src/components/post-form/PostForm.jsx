@@ -4,6 +4,7 @@ import { Button, Input, RTE, Select } from "..";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import  Container from '../container/Container.jsx'
 
 export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
@@ -71,8 +72,13 @@ export default function PostForm({ post }) {
     }, [watch, slugTransform, setValue]);
 
     return (
+        
+        <div 
+        className= 'h-screen flex justify-center items-center bg-gray-700 text-white'
+        >
+        <Container>
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-            <div className="w-2/3 px-2">
+            <div className="w-2/3 px-10">
                 <Input
                     label="Title :"
                     placeholder="Title"
@@ -90,7 +96,7 @@ export default function PostForm({ post }) {
                 />
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
-            <div className="w-1/3 px-2">
+            <div className="w-1/3 px-5">
                 <Input
                     label="Featured Image :"
                     type="file"
@@ -118,5 +124,9 @@ export default function PostForm({ post }) {
                 </Button>
             </div>
         </form>
+
+        </Container>
+
+        </div>
     );
 }

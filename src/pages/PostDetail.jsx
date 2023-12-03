@@ -29,7 +29,7 @@ function PostDetail() {
         appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
                 appwriteService.deleteFile(post.featuredImage);
-                navigate("/posts");
+                navigate("/all-posts");
             }
         });
     };
